@@ -1,6 +1,7 @@
 const express = require("express");
 const { register, login, logout, getUser, updateUser } = require("../controllers/Users");
 const { saveMovie, getSavedMovie, unsaveMovie, checkSavedMovie } = require("../controllers/Bookmark");
+const { testingUser } = require("../controllers/testing");
 const { uploadImage } = require("../controllers/uploadController");
 const upload = require("../middlewares/multerConfig");
 const authenticateToken = require("../middlewares/verifyJWT");
@@ -19,5 +20,7 @@ routes.get("/getSavedMovie", authenticateToken, getSavedMovie);
 routes.delete("/unsaveMovie", authenticateToken, unsaveMovie);
 routes.post("/checkSavedMovie", authenticateToken, checkSavedMovie);
 routes.post("/uploads", authenticateToken, upload.single("image"), uploadImage);
+
+routes.post("/testing/user", testingUser);
 
 module.exports = routes;
