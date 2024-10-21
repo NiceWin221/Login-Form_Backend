@@ -1,6 +1,6 @@
 let users = [];
 
-export const testingUser = (req, res) => {
+const testingUser = (req, res) => {
   try {
     const { username, email } = req.body;
 
@@ -25,3 +25,5 @@ export const testingUser = (req, res) => {
     });
   }
 };
+
+module.exports = { testingUser };
