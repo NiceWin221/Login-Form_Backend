@@ -1,7 +1,6 @@
 const User = require("../model/Users");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { nanoid } = require("nanoid");
 
 const register = async (req, res) => {
   const { username, password, email } = req.body;
@@ -19,7 +18,7 @@ const register = async (req, res) => {
   try {
     const hashedPwd = await bcrypt.hash(password, 10);
     const result = await User.create({
-      id: `user-${nanoid(16)}`,
+      id: 1,
       username: username,
       password: hashedPwd,
       email: email,
