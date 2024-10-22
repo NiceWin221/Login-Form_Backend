@@ -32,6 +32,7 @@ const Users = db.define(
   },
   {
     freezeTableName: true,
+    timestamps: false,
   }
 );
 
