@@ -6,7 +6,7 @@ const Sequelize = require("sequelize");
 // });
 
 const db = new Sequelize(
-  process.env.MYSQLDATABASE,
+  process.env.MYSQL_DATABASE,
   process.env.MYSQLUSER,
   process.env.MYSQLPASSWORD,
   {
