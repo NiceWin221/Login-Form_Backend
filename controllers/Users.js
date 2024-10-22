@@ -22,8 +22,14 @@ const register = async (req, res) => {
       password: hashedPwd,
       email: email,
     });
-    console.log(result);
-    res.status(201).json({ message: "User has been created!" });
+
+    res.status(201).json({
+      status: "success",
+      message: "User has been created",
+      newUser: {
+        username,
+      },
+    });
   } catch (err) {
     res.status(500).json({ message: "Internal Server Error" });
   }
