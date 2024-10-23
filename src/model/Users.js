@@ -4,8 +4,13 @@ const db = require("../config/db");
 const { DataTypes } = Sequelize;
 
 const Users = db.define(
-  "akun",
+  "users",
   {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false,
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,16 +24,15 @@ const Users = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // phoneNumber: {
-    //   type: DataTypes.STRING,
-    // },
-    // profilePicture: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
-    // refreshToken: {
-    //   type: DataTypes.TEXT,
-    // },
+    phoneNumber: {
+      type: DataTypes.STRING,
+    },
+    profilePicture: {
+      type: DataTypes.STRING,
+    },
+    refreshToken: {
+      type: DataTypes.TEXT,
+    },
   },
   {
     freezeTableName: true,

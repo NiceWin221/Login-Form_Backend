@@ -12,13 +12,16 @@ const routes = express.Router();
 routes.post("/register", register);
 routes.post("/login", login);
 routes.get("/token", refreshToken);
-routes.get("/getUser", authenticateToken, getUser);
-routes.post("/updateUser", updateUser);
-routes.delete("/logout", logout);
-routes.post("/saveMovie", authenticateToken, saveMovie);
-routes.get("/getSavedMovie", authenticateToken, getSavedMovie);
-routes.delete("/unsaveMovie", authenticateToken, unsaveMovie);
-routes.post("/checkSavedMovie", authenticateToken, checkSavedMovie);
+
+routes.get("/users", authenticateToken, getUser);
+routes.put("/users", authenticateToken, updateUser);
+routes.delete("/users", authenticateToken, logout);
+
+routes.post("/movies", authenticateToken, saveMovie);
+routes.get("/movies", authenticateToken, getSavedMovie);
+routes.delete("/movies/:movieId", authenticateToken, unsaveMovie);
+routes.get("/movies/:movieId", authenticateToken, checkSavedMovie);
+
 routes.post("/uploads", authenticateToken, upload.single("image"), uploadImage);
 
 routes.post("/testing/user", testingUser);

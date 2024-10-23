@@ -3,12 +3,11 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const routes = require("./routes/index");
-const db = require("./config/db");
+const routes = require("./src/routes/index");
+const db = require("./src/config/db");
 const PORT = process.env.PORT || 3000;
 const path = require("path");
 
-// Connecting to Database
 const testDatabaseConnection = async () => {
   try {
     await db.authenticate();
@@ -20,7 +19,6 @@ const testDatabaseConnection = async () => {
 
 testDatabaseConnection();
 
-// Middleware
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

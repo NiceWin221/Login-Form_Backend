@@ -4,8 +4,13 @@ const db = require("../config/db");
 const { DataTypes } = Sequelize;
 
 const Bookmark = db.define(
-  "bookmark",
+  "bookmarks",
   {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false,
+    },
     imdbID: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,7 +29,7 @@ const Bookmark = db.define(
     director: {
       type: DataTypes.STRING,
     },
-    actor: {
+    writer: {
       type: DataTypes.STRING,
     },
     userID: {
@@ -33,6 +38,7 @@ const Bookmark = db.define(
   },
   {
     freezeTableName: true,
+    timestamps: false,
   }
 );
 
